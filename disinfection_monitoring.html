@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surface Disinfection Monitoring</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .checkbox-cell input[type="checkbox"] {
+            width: 12px;
+            height: 12px;
+            cursor: pointer;
+            margin: 1px;
+        }
+        .checkbox-cell input[type="checkbox"]:checked {
+            background-color: #2563eb;
+            border-color: #2563eb;
+        }
+        .initials-input {
+            width: 36px !important;
+            text-align: center;
+            font-size: 0.65rem !important;
+            padding: 1px !important;
+            margin: 0 !important;
+        }
+        .compact-table th, .compact-table td {
+            padding: 2px !important;
+        }
+        .compact-cell {
+            height: 16px !important;
+            min-height: 16px !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 py-2">
+    <div class="max-w-[1200px] mx-auto px-2">
+        <div class="bg-white shadow-lg rounded-lg p-3">
+            <!-- Header -->
+            <div class="text-center mb-2">
+                <p class="text-[10px] font-semibold text-gray-600">Form: LG-1.012-MIC</p>
+                <h2 class="text-sm font-bold text-gray-800 leading-tight">MEDICAL AFFAIRS – LABORATORY SERVICES</h2>
+                <h1 class="text-base font-bold text-gray-900">SURFACE DISINFECTION MONITORING</h1>
+            </div>
+
+            <form id="disinfectionForm" class="space-y-2">
+                <!-- Form Header -->
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-[10px] font-medium text-gray-700">UNIT/LOCATION:</label>
+                        <input type="text" name="unit" value="MICROBIOLOGY" class="w-full h-6 px-2 text-[10px] border border-gray-300 rounded shadow-sm">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-medium text-gray-700">MONTH/YEAR:</label>
+                        <input type="text" name="monthYear" class="w-full h-6 px-2 text-[10px] border border-gray-300 rounded shadow-sm">
+                    </div>
+                </div>
+
+                <p class="text-[10px] text-gray-600 italic -mb-1">INSTRUCTION: Check the box if performed and put your initials.</p>
+
+                <!-- Table -->
+                <div class="overflow-x-auto border border-gray-200 rounded">
+                    <table class="min-w-full divide-y divide-gray-200 compact-table">
+                        <thead class="bg-gray-50">
+                            <tr class="compact-cell">
+                                <th class="px-1 py-1 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider border-b border-r w-20">Temp.</th>
+                                <th class="px-1 py-1 text-center text-[10px] font-medium text-gray-500 uppercase tracking-wider border-b" colspan="31">Days</th>
+                            </tr>
+                            <tr class="compact-cell">
+                                <th class="px-1 py-0 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider border-r"></th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">1</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">2</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">3</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">4</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">5</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">6</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">7</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">8</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">9</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">10</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">11</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">12</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">13</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">14</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">15</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">16</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">17</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">18</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">19</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">20</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">21</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">22</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">23</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">24</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">25</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">26</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">27</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">28</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">29</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500 border-r">30</th>
+                                <th class="w-7 px-0 py-0 text-center text-[10px] font-medium text-gray-500">31</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200" id="monitoringTableBody"></tbody>
+                    </table>
+                </div>
+
+                <!-- Notes -->
+                <div class="grid grid-cols-2 gap-x-2 gap-y-0 text-[8px] leading-tight text-gray-600 bg-gray-50 p-1 rounded">
+                    <p>• Disinfection must be performed by Section In-Charge and/or assigned rotating staff BEFORE and AFTER their duty hours (8am-5pm).</p>
+                    <p>• Disinfect surfaces with IPC Approved Disinfectant Solution. For electronic devices, use Sani-Cloth 70.</p>
+                    <p>• Follow manufacturer's recommendation for disinfecting machines and equipments.</p>
+                    <p>• Monitoring of compliance is the responsibility of Section In-Charge.</p>
+                </div>
+
+                <!-- Signatures -->
+                <div class="grid grid-cols-3 gap-1 pt-1 border-t">
+                    <div>
+                        <label class="block text-[8px] font-medium text-gray-700">Checked by / Date:</label>
+                        <input type="text" name="checkedBy" class="w-full h-4 px-1 text-[8px] border border-gray-300 rounded">
+                    </div>
+                    <div>
+                        <label class="block text-[8px] font-medium text-gray-700">Reviewed by / Date:</label>
+                        <input type="text" name="reviewedBy" class="w-full h-4 px-1 text-[8px] border border-gray-300 rounded">
+                    </div>
+                    <div>
+                        <label class="block text-[8px] font-medium text-gray-700">Approved by / Date:</label>
+                        <input type="text" name="approvedBy" class="w-full h-4 px-1 text-[8px] border border-gray-300 rounded">
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full bg-blue-600 text-white py-1 px-4 text-[10px] rounded hover:bg-blue-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 transition-colors">
+                    Generate PDF
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Generate table rows dynamically
+        const tbody = document.getElementById('monitoringTableBody');
+        const items = ['Benchtops', 'Keyboard', 'Mouse', 'Monitor', 'Phone'];
+        
+        items.forEach(item => {
+            const tr = document.createElement('tr');
+            tr.className = 'compact-cell';
+            tr.innerHTML = `
+                <td class="px-1 py-0 text-[10px] font-medium text-gray-900 border-r">${item}</td>
+                ${Array.from({length: 31}, (_, i) => `
+                    <td class="border-r p-0 text-center checkbox-cell">
+                        <input type="checkbox" 
+                               name="${item.toLowerCase()}${i + 1}"
+                               class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                    </td>
+                `).join('')}
+            `;
+            tbody.appendChild(tr);
+        });
+
+        // Add initials row
+        const initialsRow = document.createElement('tr');
+        initialsRow.className = 'compact-cell';
+        initialsRow.innerHTML = `
+            <td class="px-1 py-0 text-[10px] font-medium text-gray-900 border-r">Initials</td>
+            ${Array.from({length: 31}, (_, i) => `
+                <td class="border-r p-0 text-center">
+                    <input type="text" 
+                           name="initials${i + 1}"
+                           class="w-full h-4 text-center text-[8px] focus:outline-none focus:ring-1 focus:ring-blue-500 initials-input"
+                           maxlength="4">
+                </td>
+            `).join('')}
+        `;
+        tbody.appendChild(initialsRow);
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
